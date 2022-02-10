@@ -61,20 +61,26 @@ public class Launcher{
                     content = content.replaceAll("[?,.;/:!]", "");
 
                     String[] splitText = content.toLowerCase().split(" ");
+                    // Create a stream so I can do some grouping counting
                     Stream <String> streamText = Arrays.stream(splitText);
-                    streamText = streamText.sorted();
 
                     Map<String, Long> result = streamText.collect(
                         Collectors.groupingBy(
                         Function.identity(),
                         Collectors.counting()));
+                    /**
+                     * entrySet -> To enter in a Map
+                     * map -> To have the value of the key
+                     */
+
                     List<String> streamMap =
                         result.
                         entrySet().
                         stream().
                         sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).
                         limit(3).
-                        map(Map.Entry::getKey).collect(Collectors.toList());
+                        map(Map.Entry::getKey).
+                        collect(Collectors.toList());
 
                     streamMap.forEach((String word) ->{
                         System.out.print(word + " ");
