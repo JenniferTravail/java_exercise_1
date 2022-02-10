@@ -20,13 +20,14 @@ public class Launcher{
             }
             else if (texte.contains("fibo")){
                 System.out.println("Calcule de la suite de Fibonnaci, veuillez donner un nombre:");
+                int nombre;
                 Scanner nb = new Scanner(System.in);
-                int nombre = nb.nextInt();
-                String consomme = nb.nextLine();
-                // Faire un garde fou
-                int resultatFibo = fibonnaci(nombre);
-                System.out.println("Le resultat de la suite de Fibonnaci de " + nombre + " est: " + resultatFibo);
-
+                while(nb.hasNextInt()){
+                    nombre = nb.nextInt();
+                    String consomme = nb.nextLine();
+                    int resultatFibo = fibonnaci(nombre);
+                    System.out.println("Le resultat de la suite de Fibonnaci de " + nombre + " est: " + resultatFibo)
+                }
             }
             else{
                 System.out.println("Unknown command");
