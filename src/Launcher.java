@@ -23,6 +23,7 @@ public class Launcher{
                         running = false;
                     }
                     continue;
+
                 }
             }
             System.out.println("Unknown command");
